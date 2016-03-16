@@ -8,6 +8,24 @@
       "color": "FireBrick",
       "purchased": false,
       "description": "This is an immaculate 2006 Nissan Rogue with only 25000 miles on it. Leather seats, power everything."
+    },
+    {
+      "make": "Mazda",
+      "model": "CX-5",
+      "year": "2015",
+      "price": "23000",
+      "color": "Black",
+      "purchased": true,
+      "description": "This is a 2015 Mazda CX-5 SUV with only 30000 miles on it. 2.5L Engine and All Wheel Drive."
+    },
+    {
+      "make": "Volvo",
+      "model": "S60",
+      "year": "2006",
+      "price": "4000",
+      "color": "Blue",
+      "purchased": false,
+      "description": "This is a 2006 Volvo S60 with only 100k miles on it. Leather seats, moom roof."
     }
   ]
 }
