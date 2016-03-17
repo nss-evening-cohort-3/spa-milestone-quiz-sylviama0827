@@ -7,7 +7,7 @@
       "price": "8999",
       "color": "FireBrick",
       "purchased": false,
-      "description": "This is an immaculate 2006 Nissan Rogue with only 25000 miles on it. Leather seats, power everything."
+      "description": "This is an immaculate 2006 Nissan Rogue with only 25000 miles on it. Leather seats."
     },
     {
       "make": "Mazda",
@@ -26,6 +26,16 @@
       "color": "Blue",
       "purchased": false,
       "description": "This is a 2006 Volvo S60 with only 100k miles on it. Leather seats, moom roof."
+    },
+    {
+      "make": "Ford",
+      "model": "Fusion",
+      "year": "2015",
+      "price": "22000",
+      "color": "Yellow",
+      "purchased": false,
+      "description": "This is a 2015 Ford Fusion new model with only 10k miles on it. Leather seats, and everything."
     }
   ]
 }
+

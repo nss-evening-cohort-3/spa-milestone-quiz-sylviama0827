@@ -1,32 +1,49 @@
-// The second IIFE augments the original one with a function that creates all of the eventHandlers that you need for the application. Name the function activateEvents.
+// The second IIFE augment, loop through & give color border 
 
 CarLot = (function(originalCarLot){
 
 originalCarLot.populatePage= function(inventory) {
   // Loop over the inventory and populate the page
-  var string = '<div class="container">';
+  var string = '';
   for(var i=0; i<inventory.length;i++){
-    string +=`<div class="row"><div class="col-md-4">Make: ${inventory[i].make}</div>`;
-    string +=`<div class="col-md-4">Model: ${inventory[i].model}</div>`;
-    string +=`<div class="col-md-4">Year: ${inventory[i].year}</div>`;
-    string +=`<div class="col-md-4">Price: ${inventory[i].price}</div>`;
-    string +=`<div class="col-md-4">Color: ${inventory[i].color}</div>`;
-    string +=`<div class="col-md-4">Purchased: ${inventory[i].purchased}</div>`;
-    string +=`<div class="col-md-12">Description: ${inventory[i].description}</div></div><br>`;
-  }
-  document.getElementById("cards").innerHTML = string;
+    if(i%3===0){
+      string+=`<div class="row">`;
+    }
+    string +=`<div class="col-md-4 col-sm-6"><h4>Make: ${inventory[i].make}</h4>`;
+    string +=`<h4>Model: ${inventory[i].model}</h4>`;
+    string +=`<p>Year: ${inventory[i].year}</p>`;
+    string +=`<p>Price: ${inventory[i].price}</p>`;
+    string +=`<p>Color: ${inventory[i].color}</p>`;
+    string +=`<p>Purchased: ${inventory[i].purchased}</p>`;
+    string +=`<p>Description: ${inventory[i].description}</p></div>`;
+    if((i+1)%3===0){
+    string +=`</div>`;
+    }
+}
 
-  // Now that the DOM is loaded, establish all the event listeners needed
-  originalCarLot.putColorBorder();
+  document.getElementById("container").innerHTML = string;
+
+  //run putColorBorder function
+  originalCarLot.putColorBorder(inventory);
+
+  //run changeThicknessColor function with passing two arguments: selected elements and color
+  var myColor ="pink";
+
+  document.getElementById("container").addEventListener("click", changeThCo);
+  function changeThCo(event){
+    var domEle = event.target;
+    CarLot.changeThicknessColor(domEle, myColor);
+  }
 };
 
 //Put a border around the car information that matches the color of the car. 
-originalCarLot.putColorBorder= function(){
-  // var kar = "red";
-  console.log("called");
-  document.getElementById("cards").querySelector(".row").style.border="solid"+ "red";
-}
-  
+originalCarLot.putColorBorder= function(inventory){
+  for(var i=0; i<inventory.length;i++){
+  document.getElementsByClassName("col-md-4 col-sm-6")[i].style.borderStyle="dashed";
+  document.getElementsByClassName("col-md-4 col-sm-6")[i].style.borderWidth="0.5px";
+  document.getElementsByClassName("col-md-4 col-sm-6")[i].style.borderColor= inventory[i].color;
+  }
+} 
 
 return originalCarLot;
 })(CarLot||{});
