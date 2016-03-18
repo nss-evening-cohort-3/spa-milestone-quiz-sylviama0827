@@ -1,13 +1,19 @@
-//The second IIFE augment, functions: 1. loop through 2.give color border 
+//The second IIFE augment
+
+//functions: 1. loop through 2.give color border 
 //3. clear TextBox (clear and cursor) 4. change DOM's description
+
+//run: (1)loop over (2)put color Border (3)change border Thickness and Color
+//(4)clear text box and cursor (5)change text description
 
 CarLot = (function(originalCarLot){
 
-//function: loop over inventory and populate the page
+//1. function: loop over inventory and populate the page
 originalCarLot.populatePage= function(inventory) {
 
   var string = '';
   for(var i=0; i<inventory.length;i++){
+    //make sure each row has three columns
     if(i%3===0){
       string+=`<div class="row">`;
     }
@@ -25,22 +31,23 @@ originalCarLot.populatePage= function(inventory) {
   document.getElementById("container").innerHTML = string;
   //After loading, start to run other functions:
 
-  //run: putColorBorder function
+  //(2)run: putColorBorder function
   originalCarLot.putColorBorder(inventory);
 
-  //run: changeThicknessColor function with passing two arguments: selected elements and color
+  //once click a DOM element, run: change the border, textInput box clear, cursor on text box, and DOM description change
   var myColor ="pink";
 
-  //once click a DOM element, run: change the border(Thinkness and background-color) and textInput box clear and cursor on text box
   document.getElementById("container").addEventListener("click", changeThCo);
   var domEle = "";
   function changeThCo(event){
     domEle = event.target;
+    //(3)run change border Thickness and Color
     CarLot.changeThicknessColor(domEle, myColor);
+    //(4) run clear text box and cursor
     CarLot.clearTextInput(domEle);
 
 
-    //run: keyup and change DOM description function
+    //(5)run: keyup and change DOM description function
     document.getElementById("myInput").addEventListener("keyup", typing);
     function typing(event){
     var textBox = event.target;
@@ -50,7 +57,7 @@ originalCarLot.populatePage= function(inventory) {
   }
 };
 
-//Function: Put a border around the car information that matches the color of the car. 
+//2. Function: Put a border around the car information that matches the color of the car. 
 originalCarLot.putColorBorder= function(inventory){
   for(var i=0; i<inventory.length;i++){
   document.getElementsByClassName("col-md-4 col-sm-6")[i].style.borderStyle="dashed";
@@ -59,7 +66,7 @@ originalCarLot.putColorBorder= function(inventory){
   }
 }
 
-//function: clear Text Input 
+//3. Function: clear Text Input 
 originalCarLot.clearTextInput = function(domEle){
   //once click a DOM element, clear the input text box
   document.getElementById("myInput").value ="";
@@ -67,7 +74,7 @@ originalCarLot.clearTextInput = function(domEle){
   document.getElementById("myInput").focus();
 }
 
-//function: keyup to change the selected DOM element's content 
+//4. Function: keyup to change the selected DOM element's content 
 originalCarLot.changeDescription = function(domEle, textBox){
   domEle.innerHTML = textBox.value;
 }
@@ -75,7 +82,7 @@ originalCarLot.changeDescription = function(domEle, textBox){
 return originalCarLot;
 })(CarLot||{});
 
-//run: everything
+//run: everything (1)run loop over
 CarLot.loadInventory(CarLot.populatePage);
 
 
