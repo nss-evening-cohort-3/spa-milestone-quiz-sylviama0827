@@ -1,14 +1,14 @@
 //The second IIFE augment
 
-//functions: 1. loop through 2.give color border 
-//3. clear TextBox (clear and cursor) 4. change DOM's description
+//functions: 3. loop through 4.give color border 
+//5. clear TextBox (clear and cursor) 6. change DOM's description
 
 //run: (1)loop over (2)put color Border (3)change border Thickness and Color
 //(4)clear text box and cursor (5)change text description
 
 CarLot = (function(originalCarLot){
 
-//1. function: loop over inventory and populate the page
+//3. function: loop over inventory and populate the page
 originalCarLot.populatePage= function(inventory) {
 
   var string = '';
@@ -57,7 +57,7 @@ originalCarLot.populatePage= function(inventory) {
   }
 };
 
-//2. Function: Put a border around the car information that matches the color of the car. 
+//4. Function: Put a border around the car information that matches the color of the car. 
 originalCarLot.putColorBorder= function(inventory){
   for(var i=0; i<inventory.length;i++){
   document.getElementsByClassName("col-md-4 col-sm-6")[i].style.borderStyle="dashed";
@@ -66,7 +66,7 @@ originalCarLot.putColorBorder= function(inventory){
   }
 }
 
-//3. Function: clear Text Input 
+//5. Function: clear Text Input 
 originalCarLot.clearTextInput = function(domEle){
   //once click a DOM element, clear the input text box
   document.getElementById("myInput").value ="";
@@ -74,7 +74,7 @@ originalCarLot.clearTextInput = function(domEle){
   document.getElementById("myInput").focus();
 }
 
-//4. Function: keyup to change the selected DOM element's content 
+//6. Function: keyup to change the selected DOM element's content 
 originalCarLot.changeDescription = function(domEle, textBox){
   domEle.innerHTML = textBox.value;
 }

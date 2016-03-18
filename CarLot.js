@@ -3,11 +3,13 @@ var CarLot = (function () {
   var inventory = [];
 
   return {
+    //1. Function: get
     getInventory: function () {
       CarLot.loadInventory(function(){
         console.log(inventory);
       });
     },
+    //2. Function: load json
     loadInventory: function (callback) {
       var inventoryLoader = new XMLHttpRequest();
 

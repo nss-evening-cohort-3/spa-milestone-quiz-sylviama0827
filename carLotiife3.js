@@ -1,7 +1,7 @@
-//The third IIFE augment 1.change the thickness and background color 2. clear
+//The third IIFE augment 7.change the thickness and background color 8. clear
 
 CarLot = (function(originalCarLot){
-//pass two argument, the element to click and the color
+//7. Function: Change thickness and background Color with passing two arguments, the element to click and the color
 originalCarLot.changeThicknessColor = function(domEle, myColor){
   originalCarLot.clearChangedThCo();
   domEle.classList.add("myshow");
@@ -11,7 +11,7 @@ originalCarLot.changeThicknessColor = function(domEle, myColor){
 }
 
 
-//clear thickness and background function
+//8. Function: clear thickness and background function
 originalCarLot.clearChangedThCo= function(){
 
  //clear <div class ="container">
